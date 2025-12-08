@@ -1,0 +1,12 @@
+[Unit]
+Description=TravelPi Connection Manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/travelpi-connection-manager.sh
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

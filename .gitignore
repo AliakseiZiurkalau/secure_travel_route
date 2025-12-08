@@ -1,0 +1,23 @@
+# Database
+*.db
+*.db-journal
+
+# Logs
+*.log
+/var/log/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Configuration with sensitive data
+config/wpa_supplicant.conf
+
+# Backup files
+*.bak
+*.backup
