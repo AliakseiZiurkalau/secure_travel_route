@@ -138,6 +138,18 @@ switch ($action) {
         echo json_encode(['success' => $result]);
         break;
         
+    case 'shutdown':
+        // Выключение системы
+        shell_exec('sudo shutdown -h now');
+        echo json_encode(['success' => true, 'message' => 'Система выключается...']);
+        break;
+        
+    case 'reboot':
+        // Перезагрузка системы
+        shell_exec('sudo reboot');
+        echo json_encode(['success' => true, 'message' => 'Система перезагружается...']);
+        break;
+        
     default:
         http_response_code(400);
         echo json_encode(['error' => 'Invalid action']);

@@ -1,0 +1,14 @@
+# TravelPi sudoers configuration
+# Разрешает веб-серверу выполнять команды управления системой без пароля
+
+# Пользователь www-data может выполнять команды управления системой
+www-data ALL=(ALL) NOPASSWD: /sbin/shutdown
+www-data ALL=(ALL) NOPASSWD: /sbin/reboot
+www-data ALL=(ALL) NOPASSWD: /usr/sbin/service
+www-data ALL=(ALL) NOPASSWD: /bin/systemctl
+www-data ALL=(ALL) NOPASSWD: /sbin/iptables
+www-data ALL=(ALL) NOPASSWD: /sbin/iptables-restore
+www-data ALL=(ALL) NOPASSWD: /sbin/ip
+www-data ALL=(ALL) NOPASSWD: /sbin/iwlist
+www-data ALL=(ALL) NOPASSWD: /sbin/wpa_cli
+www-data ALL=(ALL) NOPASSWD: /sbin/dhclient

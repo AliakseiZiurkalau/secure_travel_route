@@ -41,12 +41,15 @@ sudo ./setup.sh
 sudo cp scripts/connection-manager.sh /usr/local/bin/travelpi-connection-manager.sh
 sudo cp scripts/device-monitor.sh /usr/local/bin/travelpi-device-monitor.sh
 sudo cp scripts/dns-monitor.sh /usr/local/bin/travelpi-dns-monitor.sh
+sudo cp scripts/autostart.sh /usr/local/bin/travelpi-autostart.sh
 sudo chmod +x /usr/local/bin/travelpi-*.sh
 
 sudo cp systemd/*.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable travelpi-connection travelpi-monitor travelpi-dns-monitor
+sudo systemctl enable travelpi-connection travelpi-monitor travelpi-dns-monitor travelpi-autostart
 ```
+
+**Автозапуск**: Служба `travelpi-autostart` автоматически запустит все компоненты при загрузке системы.
 
 ### 4. Создание директорий веб-сервера
 ```bash
@@ -88,6 +91,9 @@ sudo reboot
 ## Проверка статуса служб
 
 ```bash
+# Проверка автозапуска
+sudo systemctl status travelpi-autostart
+
 # Проверка hostapd (точка доступа)
 sudo systemctl status hostapd
 
@@ -105,6 +111,9 @@ sudo systemctl status travelpi-monitor
 
 # Проверка монитора DNS
 sudo systemctl status travelpi-dns-monitor
+
+# Просмотр логов автозапуска
+sudo cat /var/log/travelpi-autostart.log
 ```
 
 ## Логи

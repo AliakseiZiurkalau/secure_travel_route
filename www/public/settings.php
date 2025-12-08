@@ -101,9 +101,18 @@ $settings = $db->query('SELECT * FROM settings')->fetchAll(PDO::FETCH_KEY_PAIR);
             </section>
 
             <section>
-                <h2>Действия</h2>
-                <button class="btn" onclick="rebootSystem()">🔄 Перезагрузить</button>
-                <button class="btn btn-danger" onclick="shutdownSystem()">⏻ Выключить</button>
+                <h2>Управление системой</h2>
+                <div class="system-actions">
+                    <button class="btn btn-reboot" onclick="rebootSystem()">
+                        <span class="btn-icon">🔄</span>
+                        <span>Перезагрузить</span>
+                    </button>
+                    <button class="btn btn-shutdown" onclick="shutdownSystem()">
+                        <span class="btn-icon">⏻</span>
+                        <span>Выключить</span>
+                    </button>
+                </div>
+                <p class="warning-text">⚠️ При выключении устройство полностью отключится. Для включения потребуется физический доступ к Raspberry Pi.</p>
             </section>
         </main>
     </div>
